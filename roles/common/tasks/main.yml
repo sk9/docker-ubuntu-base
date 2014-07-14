@@ -1,0 +1,11 @@
+---
+# file: roles/common/tasks/main.yml
+
+- name: Install the common packages
+  apt: name={{ item }} state=latest
+  with_items:
+    - wget
+    - git
+    - which
+    - tar
+    - vim
