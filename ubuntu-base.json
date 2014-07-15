@@ -14,7 +14,7 @@
             "inline": [
                 "apt-add-repository ppa:rquillo/ansible -y",
                 "apt-get update -y",
-                "apt-get install ansible -y"
+                "apt-get install ansible python-apt -y"
             ]
         },
         {
@@ -26,10 +26,13 @@
         }
     ],
     "post-processors": [
-        {
-            "type": "docker-import",
-            "repository": "deepblue/ubuntu-base",
-            "tag": "{{user `version`}}"
-        }
+        [
+            {
+                "type": "docker-import",
+                "repository": "kopatsr9/docker-ubuntu-base",
+                "tag": "{{user `version`}}"
+            },
+            "docker-push"
+        ]
     ]
 }

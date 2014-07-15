@@ -6,6 +6,5 @@
   with_items:
     - wget
     - git
-    - which
     - tar
     - vim
